@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #eef2eb;
+  color: #26352d;
+  font-family: Arial, sans-serif;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 380px;
+  padding: 32px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 12px 36px #26352d1a;
+}
+
+h1 {
+  margin: 0 0 8px;
+}
+
+.login-box > p {
+  margin: 0 0 24px;
+  color: #647168;
+}
+
+label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bac5bb;
+  border-radius: 4px;
+  font: inherit;
+}
+
+input:focus {
+  outline: 2px solid #557b50;
+  outline-offset: 1px;
+}
+
+.error {
+  min-height: 16px;
+  margin: 4px 0;
+  color: #a33d35;
+  font-size: 13px;
+}
+
+button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: 0;
+  border-radius: 4px;
+  background: #355b46;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #294735;
+}
+
+#message {
+  min-height: 20px;
+  margin: 12px 0 0;
+  color: #355b46;
+  font-size: 14px;
+}
+
+@media (max-width: 420px) {
+  .login-box {
+    padding: 24px;
+  }
+}
