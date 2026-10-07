@@ -1,35 +1,45 @@
-const form = document.querySelector('#login-form');
+document.getElementById("loginForm").addEventListener("submit", function(event) {
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  const email = document.querySelector('#email');
-  const password = document.querySelector('#password');
-  const emailError = document.querySelector('#email-error');
-  const passwordError = document.querySelector('#password-error');
-  const message = document.querySelector('#message');
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-  emailError.textContent = '';
-  passwordError.textContent = '';
-  message.textContent = '';
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+    const successMessage = document.getElementById("successMessage");
 
-  if (email.value.trim() === '') {
-    emailError.textContent = 'Please enter your email.';
-    email.focus();
-    return;
-  }
+    // Clear previous messages
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    successMessage.textContent = "";
 
-  if (!email.validity.valid) {
-    emailError.textContent = 'Please enter a valid email address.';
-    email.focus();
-    return;
-  }
+    let isValid = true;
 
-  if (password.value.length < 8) {
-    passwordError.textContent = 'Password must be at least 8 characters.';
-    password.focus();
-    return;
-  }
+    // Email validation
+    if (email === "") {
+        emailError.textContent = "Email is required.";
+        isValid = false;
+    } 
+    else if (!email.includes("@")) {
+        emailError.textContent = "Please enter a valid email address.";
+        isValid = false;
+    }
 
-  message.textContent = 'The form is valid. Sign-in is not connected yet.';
+    // Password validation
+    if (password === "") {
+        passwordError.textContent = "Password is required.";
+        isValid = false;
+    } 
+    else if (password.length < 6) {
+        passwordError.textContent = "Password must be at least 6 characters.";
+        isValid = false;
+    }
+
+    // Successful login
+    if (isValid) {
+        successMessage.textContent = "Login successful!";
+        document.getElementById("loginForm").reset();
+    }
+
 });
